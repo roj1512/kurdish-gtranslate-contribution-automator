@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.0",
+  "name": "Alîkar",
+  "description": "",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://translate.google.com/contribute"],
+      "js": ["automator.js"]
+    }
+  ]
+}

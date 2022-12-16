@@ -1,0 +1,4 @@
+{
+  "tasks": { "bundle": "deno bundle src/automator.ts dist/automator.js" },
+  "compilerOptions": { "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"] }
+}
