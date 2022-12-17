@@ -30,7 +30,6 @@ function getContributionStatus() {
     } else if (document.evaluate("//div[. = 'Translate the following text']", document, null, XPathResult.ANY_TYPE, null).iterateNext() != null && getToTranslate() != null && getFlagButton() != null) {
         return ContributionStatus.Translation;
     }
-    console.log("ib", getIncorrectButton());
     return null;
 }
 async function click(button) {
