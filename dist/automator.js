@@ -30,6 +30,7 @@ function getContributionStatus() {
     } else if (document.evaluate("//div[. = 'Translate the following text']", document, null, XPathResult.ANY_TYPE, null).iterateNext() != null && getToTranslate() != null && getFlagButton() != null) {
         return ContributionStatus.Translation;
     }
+    console.log("ib", getIncorrectButton());
     return null;
 }
 async function click(button) {
@@ -41,7 +42,7 @@ async function click(button) {
     }
     button.click();
 }
-setInterval(async ()=>{
+async function main() {
     console.debug("Checking contribution status...");
     switch(getContributionStatus()){
         case ContributionStatus.Validation:
@@ -49,7 +50,7 @@ setInterval(async ()=>{
             if (unallowedRange.test(getSuggestion())) {
                 console.debug("Suggestion not allowed. Marking as incorrect...");
                 await click(getIncorrectButton());
-                console.debug("Marked suggestion as correct.");
+                console.debug("Marked suggestion as incorrect.");
             }
             break;
         case ContributionStatus.Translation:
@@ -63,4 +64,7 @@ setInterval(async ()=>{
         case null:
             console.debug("Not contributing.");
     }
-}, 1000);
+    await new Promise((r)=>setTimeout(r, 1000));
+    await main();
+}
+main();

@@ -119,6 +119,7 @@ async function main() {
   }
 
   await new Promise((r) => setTimeout(r, 1000));
+  await main();
 }
 
 main();
