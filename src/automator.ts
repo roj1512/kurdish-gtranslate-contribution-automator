@@ -100,7 +100,7 @@ async function main() {
       if (unallowedRange.test(getSuggestion()!)) {
         console.debug("Suggestion not allowed. Marking as incorrect...");
         await click(getIncorrectButton()!);
-        console.debug("Marked suggestion as correct.");
+        console.debug("Marked suggestion as incorrect.");
       }
 
       break;
