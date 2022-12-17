@@ -90,7 +90,7 @@ async function click(button: HTMLButtonElement) {
   button.click();
 }
 
-setInterval(async () => {
+async function main() {
   console.debug("Checking contribution status...");
 
   switch (getContributionStatus()) {
@@ -117,4 +117,8 @@ setInterval(async () => {
     case null:
       console.debug("Not contributing.");
   }
-}, 1000);
+
+  await new Promise((r) => setTimeout(r, 1000));
+}
+
+main();
